@@ -1,0 +1,43 @@
+<mat-card-title>Login</mat-card-title>
+
+<mat-card-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="pt-4">
+
+    <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Username</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="username" placeholder="Nombre del usuario">
+
+        <span *ngIf="isValidField('username')" class="form-text text-danger">
+          Ingresar username
+        </span>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Contraseña</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="password" placeholder="Contraseña del usuario">
+        <span *ngIf="isValidField('password')" class="form-text text-danger">
+          Ingrese contraseña
+        </span>
+      </div>
+    </div>
+
+    <div class="pt-4">
+      <button mat-flat-button type="submit">Login</button>
+    </div>
+  </form>
+</mat-card-content>
+
+<mat-card-actions>
+  <span class="spacer"></span>
+  <a routerLink="/auth/register" mat-button>Crear Cuenta</a>
+</mat-card-actions>
+
+<mat-card-footer>
+  <p class="pt-4">
+    <br>
+    Jos&eacute; Verdezoto
+  </p>
+</mat-card-footer>
