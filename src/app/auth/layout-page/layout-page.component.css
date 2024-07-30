@@ -2,3 +2,7 @@ img{
   width: 70px;
   height: 70px;
 }
+
+.layout{
+  max-width: 600px;
+}
