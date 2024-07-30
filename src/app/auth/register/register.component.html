@@ -1,0 +1,66 @@
+<mat-card-title>Registrar</mat-card-title>
+
+<mat-card-content>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="pt-4">
+
+    <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Nombre</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="firstname" placeholder="Nombre del usuario">
+        <span *ngIf="isValidField('firstname')" class="form-text text-danger">
+          Ingrese su nombre
+        </span>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Apellido</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="lastname" placeholder="Apellido del usuario">
+        <span *ngIf="isValidField('lastname')" class="form-text text-danger">
+          Ingrese su apellido
+        </span>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="username" placeholder="Correo del usuario">
+
+        <span *ngIf="isValidField('username')" class="form-text text-danger">
+          Ingresar email
+        </span>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Contraseña</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="password" placeholder="Contraseña del usuario">
+        <span *ngIf="isValidField('password')" class="form-text text-danger">
+          Ingrese contraseña
+        </span>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Pa&iacute;s</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" formControlName="country" placeholder="Pa&iacute;s de residencia del usuario">
+        <span *ngIf="isValidField('country')" class="form-text text-danger">
+          Ingrese contraseña
+        </span>
+      </div>
+    </div>
+
+    <div class="pt-4">
+      <button mat-flat-button type="submit">Crear Cuenta</button>
+    </div>
+  </form>
+</mat-card-content>
+
+<mat-card-actions>
+  <span class="spacer"></span>
+  <a routerLink="/auth/login" mat-button>Tengo Cuenta</a>
+</mat-card-actions>
