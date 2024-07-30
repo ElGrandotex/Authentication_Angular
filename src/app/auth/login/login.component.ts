@@ -39,7 +39,6 @@ export class LoginComponent {
       this.auth.login(user).subscribe(
         (response) => {
           const token = response.token;
-          console.log(token);
           this.localStorage?.setItem('token', token)
           this.router.navigate(['/home'])
         },
