@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserLoginInterface } from '../../interfaces/user-login.interface';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   private localStorage = this.document.defaultView?.localStorage;
   public loginForm: FormGroup = this.fb.group({
@@ -24,6 +24,10 @@ export class LoginComponent {
     private auth: AuthService,
     private router: Router,
   ){}
+
+  ngOnInit(): void {
+      this.localStorage?.removeItem('token');
+  }
 
   public isValidField(field:string){
     return this.loginForm.controls[field].errors && this.loginForm.controls[field].touched;
